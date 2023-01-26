@@ -21,9 +21,28 @@ public class Duke {
          */
         Scanner userInput = new Scanner(System.in);
         String currentInput = userInput.nextLine();
+        // while (!"bye".equals(currentInput)) {
+        // System.out.println("
+        // ____________________________________________________________");
+        // System.out.println(" " + currentInput);
+        // System.out.println("
+        // ____________________________________________________________\n");
+        // currentInput = userInput.nextLine();
+        // }
+
+        TaskManager t = new TaskManager();
         while (!"bye".equals(currentInput)) {
             System.out.println("    ____________________________________________________________");
-            System.out.println("    " + currentInput);
+
+            switch (currentInput) {
+                case "list":
+                    t.listTasks();
+                    break;
+                default:
+                    System.out.println("    " + "added: " + currentInput);
+                    t.addTask(currentInput);
+                    break;
+            }
             System.out.println("    ____________________________________________________________\n");
             currentInput = userInput.nextLine();
         }
@@ -32,7 +51,7 @@ public class Duke {
          * Duke exits
          */
         System.out.println("    ____________________________________________________________");
-        System.out.println(" Bye. Hope to see you again soon!");
+        System.out.println("    " + "Bye. Hope to see you again soon!");
         System.out.println("    ____________________________________________________________");
     }
 }
