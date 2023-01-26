@@ -34,15 +34,35 @@ public class Duke {
         while (!"bye".equals(currentInput)) {
             System.out.println("    ____________________________________________________________");
 
-            switch (currentInput) {
-                case "list":
-                    t.listTasks();
-                    break;
-                default:
-                    System.out.println("    " + "added: " + currentInput);
-                    t.addTask(currentInput);
-                    break;
+            /*
+             * switch (currentInput) {
+             * case "list":
+             * t.listTasks();
+             * break;
+             * default:
+             * System.out.println("    " + "added: " + currentInput);
+             * t.addTask(currentInput);
+             * break;
+             * }
+             * System.out.
+             * println("    ____________________________________________________________\n"
+             * );
+             * currentInput = userInput.nextLine();
+             */
+
+            if (currentInput.startsWith("mark")) {
+                String[] operation = currentInput.split(" ");
+                t.markTask(operation[1]);
+            } else if (currentInput.startsWith("unmark")) {
+                String[] operation = currentInput.split(" ");
+                t.unmarkTask(operation[1]);
+            } else if ("list".equals(currentInput)) {
+                t.listTasks();
+            } else {
+                System.out.println("    " + "added: " + currentInput);
+                t.addTask(currentInput);
             }
+
             System.out.println("    ____________________________________________________________\n");
             currentInput = userInput.nextLine();
         }
