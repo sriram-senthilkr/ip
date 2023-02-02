@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
 public class Duke {
+    private static String LINE = "    ____________________________________________________________";
+
     public static void main(String[] args) {
-        /*
+
+        /**
          * Duke greetings
          */
         String logo = " ____        _        \n" + "|  _ \\ _   _| | _____ \n" + "| | | | | | | |/ / _ \\\n"
@@ -10,61 +13,58 @@ public class Duke {
         System.out.println("Hello from\n" + logo);
 
         System.out.println("    Hello! I'm Duke\n    What can I do for you?");
-        System.out.println("    ____________________________________________________________\n");
+        System.out.println(LINE + "\n");
 
-        /*
+        /**
          * Takes in user inputs, and echoes them. If user input == "bye", then program
          * exits
          */
         Scanner userInput = new Scanner(System.in);
         String currentInput = userInput.nextLine();
-        // while (!"bye".equals(currentInput)) {
-        // System.out.println("
-        // ____________________________________________________________");
-        // System.out.println(" " + currentInput);
-        // System.out.println("
-        // ____________________________________________________________\n");
-        // currentInput = userInput.nextLine();
-        // }
 
         TaskManager t = new TaskManager();
         while (!"bye".equals(currentInput)) {
-            System.out.println("    ____________________________________________________________");
+            System.out.println(LINE);
 
-            switch (currentInput) {
-            case "list":
-                t.listTasks();
-                break;
-            default:
-                System.out.println("    " + "added: " + currentInput);
-                t.addTask(currentInput);
-                break;
-            }
-            System.out.println("    ____________________________________________________________\n");
-            currentInput = userInput.nextLine();
-
+            // marks the task as completed
             if (currentInput.startsWith("mark")) {
-                String[] operation = currentInput.split(" ");
-                t.markTask(operation[1]);
+                t.markTask(currentInput);
+
+                // unmarks the task
             } else if (currentInput.startsWith("unmark")) {
-                String[] operation = currentInput.split(" ");
-                t.unmarkTask(operation[1]);
-            } else if ("list".equals(currentInput)) {
+                t.unmarkTask(currentInput);
+
+                // sets deadline to the task
+            } else if (currentInput.startsWith("deadline")) {
+                t.addDeadline(currentInput);
+
+                // lists the task
+            } else if (currentInput.startsWith("list")) {
                 t.listTasks();
+
+                // adds a todo task
+            } else if (currentInput.startsWith("todo")) {
+                t.addTodo(currentInput);
+
+                // adds event task
+            } else if (currentInput.startsWith("event")) {
+                t.addEvent(currentInput);
+
+                // adds the given task to collection
             } else {
                 System.out.println("    " + "added: " + currentInput);
                 t.addTask(currentInput);
             }
 
-            System.out.println("    ____________________________________________________________\n");
+            System.out.println(LINE + "\n");
             currentInput = userInput.nextLine();
         }
 
-        /*
+        /**
          * Duke exits
          */
-        System.out.println("    ____________________________________________________________");
+        System.out.println(LINE);
         System.out.println("    " + "Bye. Hope to see you again soon!");
-        System.out.println("    ____________________________________________________________");
+        System.out.println(LINE);
     }
 }
