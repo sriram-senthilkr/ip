@@ -23,6 +23,9 @@ public class Duke {
         String currentInput = userInput.nextLine();
 
         TaskManager t = new TaskManager();
+
+        String command = currentInput.split(" ")[0];
+
         while (!"bye".equals(currentInput)) {
             System.out.println(LINE);
 
