@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class Duke {
     private static String LINE = "    ____________________________________________________________";
 
-    public static void main(String[] args) {
-
+    public static void printGreetings() {
         /**
          * Duke greetings
          */
@@ -14,6 +13,20 @@ public class Duke {
 
         System.out.println("    Hello! I'm Duke\n    What can I do for you?");
         System.out.println(LINE + "\n");
+    }
+
+    public static void printFarewell() {
+        System.out.println("\tBye. Hope to see you again soon!");
+        printHorizontalLine();
+    }
+
+    public static void printHorizontalLine() {
+        System.out.println(LINE);
+    }
+
+    public static void main(String[] args) {
+
+        printGreetings();
 
         /**
          * Takes in user inputs, and echoes them. If user input == "bye", then program
@@ -26,48 +39,39 @@ public class Duke {
 
         String command = currentInput.split(" ")[0];
 
-        while (!"bye".equals(currentInput)) {
-            System.out.println(LINE);
-
-            // marks the task as completed
-            if (currentInput.startsWith("mark")) {
+        while (true) {
+            printHorizontalLine();
+            switch (command) {
+            case "mark":
                 t.markTask(currentInput);
-
-                // unmarks the task
-            } else if (currentInput.startsWith("unmark")) {
+                break;
+            case "unmark":
                 t.unmarkTask(currentInput);
-
-                // sets deadline to the task
-            } else if (currentInput.startsWith("deadline")) {
+                break;
+            case "deadline":
                 t.addDeadline(currentInput);
-
-                // lists the task
-            } else if (currentInput.startsWith("list")) {
+                break;
+            case "list":
                 t.listTasks();
-
-                // adds a todo task
-            } else if (currentInput.startsWith("todo")) {
+                break;
+            case "todo":
                 t.addTodo(currentInput);
-
-                // adds event task
-            } else if (currentInput.startsWith("event")) {
+                break;
+            case "event":
                 t.addEvent(currentInput);
-
-                // adds the given task to collection
-            } else {
-                System.out.println("    " + "added: " + currentInput);
+                break;
+            case "bye":
+                printFarewell();
+                System.exit(0);
+            default:
+                System.out.println(" " + "added: " + currentInput);
                 t.addTask(currentInput);
             }
-
-            System.out.println(LINE + "\n");
+            printHorizontalLine();
             currentInput = userInput.nextLine();
+            command = currentInput.split(" ")[0];
         }
 
-        /**
-         * Duke exits
-         */
-        System.out.println(LINE);
-        System.out.println("    " + "Bye. Hope to see you again soon!");
-        System.out.println(LINE);
     }
+
 }
