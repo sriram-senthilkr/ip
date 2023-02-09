@@ -1,3 +1,10 @@
+package managers;
+
+import tasks.Deadline;
+import tasks.Event;
+import tasks.Task;
+import tasks.Todo;
+
 public class TaskManager {
     private Task[] tasks = new Task[100];
     private int taskCount = 0;
