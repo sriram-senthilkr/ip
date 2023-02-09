@@ -41,37 +41,42 @@ public class Duke {
 
         while (true) {
             printHorizontalLine();
-            switch (command) {
-            case "mark":
-                t.markTask(currentInput);
-                break;
-            case "unmark":
-                t.unmarkTask(currentInput);
-                break;
-            case "deadline":
-                t.addDeadline(currentInput);
-                break;
-            case "list":
-                t.listTasks();
-                break;
-            case "todo":
-                t.addTodo(currentInput);
-                break;
-            case "event":
-                t.addEvent(currentInput);
-                break;
-            case "bye":
-                printFarewell();
-                System.exit(0);
-            default:
-                System.out.println(" " + "added: " + currentInput);
-                t.addTask(currentInput);
+            try {
+                switch (command) {
+                case "mark":
+                    t.markTask(currentInput);
+                    break;
+                case "unmark":
+                    t.unmarkTask(currentInput);
+                    break;
+                case "deadline":
+                    t.addDeadline(currentInput);
+                    break;
+                case "list":
+                    t.listTasks();
+                    break;
+                case "todo":
+                    t.addTodo(currentInput);
+                    break;
+                case "event":
+                    t.addEvent(currentInput);
+                    break;
+                case "bye":
+                    printFarewell();
+                    System.exit(0);
+                default:
+                    throw new DukeException();
+                }
+                printHorizontalLine();
+                currentInput = userInput.nextLine();
+                command = currentInput.split(" ")[0];
+            } catch (DukeException e) {
+                System.out.println("\tunknown command");
+                printHorizontalLine();
+                currentInput = userInput.nextLine();
+                command = currentInput.split(" ")[0];
             }
-            printHorizontalLine();
-            currentInput = userInput.nextLine();
-            command = currentInput.split(" ")[0];
         }
-
     }
 
 }
