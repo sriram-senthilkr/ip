@@ -1,7 +1,7 @@
-package managers;
+package duke.managers;
 
-import exceptions.DukeException;
-import ui.Ui;
+import duke.exceptions.DukeException;
+import duke.ui.Ui;
 
 public class CommandManager {
 

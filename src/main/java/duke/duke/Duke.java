@@ -1,8 +1,10 @@
-import ui.Ui;
+package duke;
+
 import java.util.Scanner;
 
-import managers.CommandManager;
-import managers.TaskManager;
+import duke.managers.CommandManager;
+import duke.managers.TaskManager;
+import duke.ui.Ui;
 
 public class Duke {
 
