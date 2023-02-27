@@ -28,6 +28,9 @@ public class CommandManager {
             case "event":
                 t.addEvent(currentInput);
                 break;
+            case "help":
+                Ui.printHelp();
+                break;
             case "bye":
                 Ui.printFarewell();
                 System.exit(0);
