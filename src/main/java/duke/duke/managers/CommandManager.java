@@ -1,6 +1,7 @@
 package duke.managers;
 
-import duke.exceptions.DukeException;
+import duke.exceptions.InvalidCommandException;
+import java.lang.ArrayIndexOutOfBoundsException;
 import duke.ui.Ui;
 
 public class CommandManager {
@@ -35,10 +36,13 @@ public class CommandManager {
                 Ui.printFarewell();
                 System.exit(0);
             default:
-                throw new DukeException();
+                throw new InvalidCommandException();
             }
-        } catch (DukeException e) {
-            System.out.println("\tunknown command");
+        } catch (InvalidCommandException e) {
+            System.out.println(InvalidCommandException.invalidCommandMessage);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(
+                    "\tYou have not followed the correct input format! \n\tFor guidance on the format, type 'help'.");
         }
         Ui.printHorizontalLine();
     }
