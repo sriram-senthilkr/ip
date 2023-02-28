@@ -10,42 +10,6 @@ public class TaskManager {
     public ArrayList<Task> tasks = new ArrayList<Task>();
     public int taskCount = 0;
 
-    /*
-     * Add existing task to collection
-     */
-    public void addExistingTask(String status, String taskName) {
-        Task todo = new Todo(taskName);
-        tasks.add(todo);
-        if (status.equals("X")) {
-            tasks.get(taskCount).setDone();
-        }
-        taskCount++;
-    }
-
-    /*
-     * Add existing deadline to collection
-     */
-    public void addExistingDeadline(String status, String taskName, String givenDeadline) {
-        Task deadline = new Deadline(taskName, givenDeadline);
-        tasks.add(deadline);
-        if (status.equals("X")) {
-            tasks.get(taskCount).setDone();
-        }
-        taskCount++;
-    }
-
-    /*
-     * Add existing deadline to collection
-     */
-    public void addExistingEvent(String status, String taskName, String startDate, String endDate) {
-        Task event = new Event(taskName, startDate, endDate);
-        tasks.add(event);
-        if (status.equals("X")) {
-            tasks.get(taskCount).setDone();
-        }
-        taskCount++;
-    }
-
     /**
      * Adds a task to collection
      */

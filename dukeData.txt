@@ -1,2 +1,3 @@
-D /   / this  / tmr
-T /   / u
+T / X / u
+T /   / this 
+D /   / those  / tmr

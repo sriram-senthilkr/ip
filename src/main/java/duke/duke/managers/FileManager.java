@@ -1,5 +1,10 @@
 package duke.managers;
 
+import duke.tasks.Deadline;
+import duke.tasks.Event;
+import duke.tasks.Task;
+import duke.tasks.Todo;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.FileNotFoundException;
@@ -20,13 +25,13 @@ public class FileManager {
                 String taskType = inputSplit[0];
                 switch (taskType) {
                 case "T":
-                    t.addExistingTask(inputSplit[1], inputSplit[2]);
+                    addExistingTask(inputSplit[1], inputSplit[2], t);
                     break;
                 case "D":
-                    t.addExistingDeadline(inputSplit[1], inputSplit[2], inputSplit[3]);
+                    addExistingDeadline(inputSplit[1], inputSplit[2], inputSplit[3], t);
                     break;
                 case "E":
-                    t.addExistingEvent(inputSplit[1], inputSplit[2], inputSplit[3], inputSplit[4]);
+                    addExistingEvent(inputSplit[1], inputSplit[2], inputSplit[3], inputSplit[4], t);
                     break;
                 }
             }
@@ -58,4 +63,40 @@ public class FileManager {
         }
     }
 
+    /*
+     * Add existing task to collection
+     */
+    public static void addExistingTask(String status, String taskName, TaskManager t) {
+        Task todo = new Todo(taskName);
+        t.tasks.add(todo);
+        if (status.equals("X")) {
+            t.tasks.get(t.taskCount).setDone();
+        }
+        t.taskCount++;
+    }
+
+    /*
+     * Add existing deadline to collection
+     */
+    public static void addExistingDeadline(String status, String taskName, String givenDeadline, TaskManager t) {
+        Task deadline = new Deadline(taskName, givenDeadline);
+        t.tasks.add(deadline);
+        if (status.equals("X")) {
+            t.tasks.get(t.taskCount).setDone();
+        }
+        t.taskCount++;
+    }
+
+    /*
+     * Add existing deadline to collection
+     */
+    public static void addExistingEvent(String status, String taskName, String startDate, String endDate,
+            TaskManager t) {
+        Task event = new Event(taskName, startDate, endDate);
+        t.tasks.add(event);
+        if (status.equals("X")) {
+            t.tasks.get(t.taskCount).setDone();
+        }
+        t.taskCount++;
+    }
 }
