@@ -7,6 +7,7 @@ import duke.tasks.Todo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TaskManager {
@@ -16,7 +17,7 @@ public class TaskManager {
     private static String FILEPATH = "src/main/java/duke/duke/data/duke.txt";
 
     private static void retrieveFileContents(String filePath) throws FileNotFoundException {
-        File f = new File(FILEPATH);
+        File f = new File(filePath);
         Scanner s = new Scanner(f);
         while (s.hasNext()) {
             System.out.println(s.nextLine());
@@ -29,7 +30,6 @@ public class TaskManager {
     public void addTask(String task) {
         tasks[taskCount] = new Task(task);
         taskCount++;
-
     }
 
     /**
@@ -41,9 +41,17 @@ public class TaskManager {
             System.out.println("\t" + (i + 1) + ". " + tasks[i].toString());
         }
         try {
-            retrieveFileContents("data/duke.txt");
+            retrieveFileContents(FILEPATH);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            try {
+                File newFile = new File(FILEPATH);
+                newFile.createNewFile();
+                System.out.println("File created: " + newFile.getName());
+            } catch (IOException f) {
+                System.out.println("File couldn't be created");
+                f.printStackTrace();
+            }
+
         }
     }
 
