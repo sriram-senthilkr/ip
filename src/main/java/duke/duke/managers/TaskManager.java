@@ -16,11 +16,51 @@ public class TaskManager {
 
     private static String FILEPATH = "src/main/java/duke/duke/data/duke.txt";
 
-    private static void retrieveFileContents(String filePath) throws FileNotFoundException {
-        File f = new File(filePath);
-        Scanner s = new Scanner(f);
-        while (s.hasNext()) {
-            System.out.println(s.nextLine());
+    public void retrieveFileContents() {
+        try {
+            File f = new File(FILEPATH);
+            Scanner s = new Scanner(f);
+            while (s.hasNext()) {
+                String nextLine = s.nextLine();
+                String[] inputSplit = nextLine.split(" / ");
+                String taskType = inputSplit[0];
+                switch (taskType) {
+                case "T":
+                    Task todo = new Todo(inputSplit[2]);
+                    tasks[taskCount] = todo;
+                    if (inputSplit[1].equals("1")) {
+                        tasks[taskCount].setDone();
+                    }
+                    taskCount++;
+                    break;
+                case "D":
+                    Task deadline = new Deadline(inputSplit[2], inputSplit[3]);
+                    tasks[taskCount] = deadline;
+                    if (inputSplit[1].equals("1")) {
+                        tasks[taskCount].setDone();
+                    }
+                    taskCount++;
+                    break;
+                case "E":
+                    Task event = new Event(inputSplit[2], inputSplit[3], inputSplit[4]);
+                    tasks[taskCount] = event;
+                    if (inputSplit[1].equals("1")) {
+                        tasks[taskCount].setDone();
+                    }
+                    taskCount++;
+                    break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            try {
+                File newFile = new File(FILEPATH);
+                newFile.createNewFile();
+                System.out.println("File created: " + newFile.getName());
+            } catch (IOException f) {
+                System.out.println("File couldn't be created");
+                f.printStackTrace();
+            }
+
         }
     }
 
@@ -40,19 +80,7 @@ public class TaskManager {
         for (int i = 0; i < taskCount; i++) {
             System.out.println("\t" + (i + 1) + ". " + tasks[i].toString());
         }
-        try {
-            retrieveFileContents(FILEPATH);
-        } catch (FileNotFoundException e) {
-            try {
-                File newFile = new File(FILEPATH);
-                newFile.createNewFile();
-                System.out.println("File created: " + newFile.getName());
-            } catch (IOException f) {
-                System.out.println("File couldn't be created");
-                f.printStackTrace();
-            }
 
-        }
     }
 
     /**
