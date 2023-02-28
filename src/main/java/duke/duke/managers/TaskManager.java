@@ -13,15 +13,15 @@ public class TaskManager {
     private Task[] tasks = new Task[100];
     private int taskCount = 0;
 
-    // private static void retrieveFileContents(String filePath) throws
-    // FileNotFoundException {
-    // File f = new File("data/duke.txt");
-    // Scanner s = new Scanner(f);
-    // while (s.hasNext()) {
-    // tasks[taskCount] = new Task(s.nextLine());
-    // taskCount++;
-    // }
-    // }
+    private static String FILEPATH = "src/main/java/duke/duke/data/duke.txt";
+
+    private static void retrieveFileContents(String filePath) throws FileNotFoundException {
+        File f = new File(FILEPATH);
+        Scanner s = new Scanner(f);
+        while (s.hasNext()) {
+            System.out.println(s.nextLine());
+        }
+    }
 
     /**
      * Adds a task to collection
@@ -29,6 +29,7 @@ public class TaskManager {
     public void addTask(String task) {
         tasks[taskCount] = new Task(task);
         taskCount++;
+
     }
 
     /**
@@ -38,6 +39,11 @@ public class TaskManager {
         System.out.println("\tHere are the tasks in your list:");
         for (int i = 0; i < taskCount; i++) {
             System.out.println("\t" + (i + 1) + ". " + tasks[i].toString());
+        }
+        try {
+            retrieveFileContents("data/duke.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
         }
     }
 
