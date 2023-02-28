@@ -4,7 +4,7 @@ import duke.exceptions.InvalidCommandException;
 import java.lang.ArrayIndexOutOfBoundsException;
 import duke.ui.Ui;
 
-public class CommandManager {
+public class CommandManager_2 {
 
     public static void handleCommand(TaskManager_2 t, String currentInput) {
         String command = currentInput.split(" ")[0];
@@ -29,9 +29,9 @@ public class CommandManager {
             case "event":
                 t.addEvent(currentInput);
                 break;
-            // case "delete":
-            // t.deleteTask(currentInput);
-            // break;
+            case "delete":
+                t.deleteTask(currentInput);
+                break;
             case "help":
                 Ui.printHelp();
                 break;

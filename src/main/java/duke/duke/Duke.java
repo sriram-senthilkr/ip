@@ -2,7 +2,7 @@ package duke;
 
 import java.util.Scanner;
 
-import duke.managers.CommandManager;
+import duke.managers.CommandManager_2;
 import duke.managers.TaskManager_2;
 import duke.ui.Ui;
 
@@ -16,7 +16,7 @@ public class Duke {
 
         while (true) {
             String currentInput = userInput.nextLine();
-            CommandManager.handleCommand(t, currentInput);
+            CommandManager_2.handleCommand(t, currentInput);
         }
     }
 

@@ -94,4 +94,17 @@ public class TaskManager_2 {
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
     }
 
+    /**
+     * Deletes event from task, and removes it from collection
+     */
+    public void deleteTask(String currentInput) {
+        String[] modifyTask = currentInput.split(" ");
+        int taskIndex = Integer.parseInt(modifyTask[1]) - 1;
+        System.out.println("\tNoted. I've removed this task:");
+        System.out.println("\t" + tasks.get(taskIndex).toString());
+        tasks.remove(taskIndex);
+        taskCount--;
+        System.out.println("\tNow you have " + taskCount + " tasks in the list.");
+    }
+
 }
