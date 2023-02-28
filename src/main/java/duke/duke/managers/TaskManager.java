@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class TaskManager {
-    // private Task[] tasks = new Task[100];
     private ArrayList<Task> tasks = new ArrayList<Task>();
     private int taskCount = 0;
 
@@ -21,7 +20,7 @@ public class TaskManager {
 
     public void retrieveFileContents() {
         try {
-            File f = new File(FILEPATH);
+            File f = new File("dukeData.txt");
             Scanner s = new Scanner(f);
             while (s.hasNext()) {
                 String nextLine = s.nextLine();
@@ -41,7 +40,7 @@ public class TaskManager {
             }
         } catch (FileNotFoundException e) {
             try {
-                File newFile = new File(FILEPATH);
+                File newFile = new File("dukeData.txt");
                 newFile.createNewFile();
                 System.out.println("File created: " + newFile.getName());
             } catch (IOException f) {
@@ -93,7 +92,7 @@ public class TaskManager {
      */
     public void writeToFile() {
         try {
-            FileWriter fw = new FileWriter(FILEPATH);
+            FileWriter fw = new FileWriter("dukeData.txt");
             for (int i = 0; i < taskCount; i++) {
                 fw.write(tasks.get(i).formatted() + "\n");
             }
