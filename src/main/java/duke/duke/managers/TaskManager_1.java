@@ -4,18 +4,16 @@ import duke.tasks.Deadline;
 import duke.tasks.Event;
 import duke.tasks.Task;
 import duke.tasks.Todo;
-import java.util.ArrayList;
 
-public class TaskManager_2 {
-    // private Task[] tasks = new Task[100];
-    private ArrayList<Task> tasks = new ArrayList<Task>();
+public class TaskManager_1 {
+    private Task[] tasks = new Task[100];
     private int taskCount = 0;
 
     /**
      * Adds a task to collection
      */
     public void addTask(String task) {
-        tasks.add(new Task(task));
+        tasks[taskCount] = new Task(task);
         taskCount++;
     }
 
@@ -25,7 +23,7 @@ public class TaskManager_2 {
     public void listTasks() {
         System.out.println("\tHere are the tasks in your list:");
         for (int i = 0; i < taskCount; i++) {
-            System.out.println("\t" + (i + 1) + ". " + tasks.get(i).toString());
+            System.out.println("\t" + (i + 1) + ". " + tasks[i].toString());
         }
     }
 
@@ -35,9 +33,9 @@ public class TaskManager_2 {
     public void markTask(String currentInput) {
         String[] modifyTask = currentInput.split(" ");
         int taskIndex = Integer.parseInt(modifyTask[1]) - 1;
-        tasks.get(taskIndex).setDone();
+        tasks[taskIndex].setDone();
         System.out.println("\tNice! I've marked this task as done:");
-        System.out.println("    " + "[X] " + tasks.get(taskIndex).getTaskName());
+        System.out.println("    " + "[X] " + tasks[taskIndex].getTaskName());
     }
 
     /**
@@ -46,9 +44,9 @@ public class TaskManager_2 {
     public void unmarkTask(String currentInput) {
         String[] modifyTask = currentInput.split(" ");
         int taskIndex = Integer.parseInt(modifyTask[1]) - 1;
-        tasks.get(taskIndex).setUndone();
+        tasks[taskIndex].setUndone();
         System.out.println("\tOK, I've marked this task as not done yet:");
-        System.out.println("    " + "[ ] " + tasks.get(taskIndex).getTaskName());
+        System.out.println("    " + "[ ] " + tasks[taskIndex].getTaskName());
     }
 
     /**
@@ -59,7 +57,7 @@ public class TaskManager_2 {
         String by = operation[1];
         String taskName = operation[0].replace("deadline ", "");
         Task deadline = new Deadline(taskName, by);
-        tasks.add(deadline);
+        tasks[taskCount] = deadline;
         taskCount++;
         System.out.println("\tGot it. I've added this task:\n" + "\t  " + deadline.toString());
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
@@ -72,7 +70,7 @@ public class TaskManager_2 {
         String[] operation = currentInput.split("todo ");
         String taskName = operation[1];
         Task todo = new Todo(taskName);
-        tasks.add(todo);
+        tasks[taskCount] = todo;
         taskCount++;
         System.out.println("\tGot it. I've added this task:\n" + "\t" + todo.toString());
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
@@ -88,22 +86,9 @@ public class TaskManager_2 {
         String to = operation2[1];
         String taskName = operation[0].replace("event ", "");
         Task event = new Event(taskName, from, to);
-        tasks.add(event);
+        tasks[taskCount] = event;
         taskCount++;
         System.out.println("\tGot it. I've added this task:\n" + "\t  " + event.toString());
-        System.out.println("\tNow you have " + taskCount + " tasks in the list.");
-    }
-
-    /**
-     * Deletes event from task, and removes it from collection
-     */
-    public void deleteTask(String currentInput) {
-        String[] modifyTask = currentInput.split(" ");
-        int taskIndex = Integer.parseInt(modifyTask[1]) - 1;
-        System.out.println("\tNoted. I've removed this task:");
-        System.out.println("\t" + tasks.get(taskIndex).toString());
-        tasks.remove(taskIndex);
-        taskCount--;
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
     }
 

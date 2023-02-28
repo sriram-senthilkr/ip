@@ -4,9 +4,9 @@ import duke.exceptions.InvalidCommandException;
 import java.lang.ArrayIndexOutOfBoundsException;
 import duke.ui.Ui;
 
-public class CommandManager_2 {
+public class CommandManager {
 
-    public static void handleCommand(TaskManager_2 t, String currentInput) {
+    public static void handleCommand(TaskManager t, String currentInput) {
         String command = currentInput.split(" ")[0];
         Ui.printHorizontalLine();
         try {

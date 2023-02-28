@@ -2,21 +2,21 @@ package duke;
 
 import java.util.Scanner;
 
-import duke.managers.CommandManager_2;
-import duke.managers.TaskManager_2;
+import duke.managers.CommandManager;
+import duke.managers.TaskManager;
 import duke.ui.Ui;
 
 public class Duke {
 
     public static void main(String[] args) {
 
-        TaskManager_2 t = new TaskManager_2();
+        TaskManager t = new TaskManager();
         Ui.printGreetings();
         Scanner userInput = new Scanner(System.in);
 
         while (true) {
             String currentInput = userInput.nextLine();
-            CommandManager_2.handleCommand(t, currentInput);
+            CommandManager.handleCommand(t, currentInput);
         }
     }
 
