@@ -6,9 +6,6 @@ import duke.tasks.Task;
 import duke.tasks.Todo;
 import java.util.ArrayList;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
 public class TaskManager {
     public ArrayList<Task> tasks = new ArrayList<Task>();
     public int taskCount = 0;
@@ -48,21 +45,6 @@ public class TaskManager {
         }
         taskCount++;
     }
-
-    /*
-     * write task to .txt file
-     */
-    // public void writeToFile() {
-    // try {
-    // FileWriter fw = new FileWriter("dukeData.txt");
-    // for (int i = 0; i < taskCount; i++) {
-    // fw.write(tasks.get(i).formatted() + "\n");
-    // }
-    // fw.close();
-    // } catch (IOException e) {
-    // System.out.println("Something went wrong: " + e.getMessage());
-    // }
-    // }
 
     /**
      * Adds a task to collection

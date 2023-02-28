@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FileManager {
+    /*
+     * retrieve contents of current .txt file
+     */
     public static void retrieveFileContents(TaskManager t) {
         try {
             File f = new File("dukeData.txt");
@@ -40,6 +43,9 @@ public class FileManager {
         }
     }
 
+    /*
+     * write task to .txt file
+     */
     public static void writeToFile(TaskManager t) {
         try {
             FileWriter fw = new FileWriter("dukeData.txt");
@@ -51,4 +57,5 @@ public class FileManager {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+
 }
