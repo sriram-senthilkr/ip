@@ -29,6 +29,9 @@ public class CommandManager {
             case "event":
                 t.addEvent(currentInput);
                 break;
+            case "delete":
+                t.deleteTask(currentInput);
+                break;
             case "help":
                 Ui.printHelp();
                 break;
