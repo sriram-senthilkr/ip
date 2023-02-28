@@ -5,9 +5,23 @@ import duke.tasks.Event;
 import duke.tasks.Task;
 import duke.tasks.Todo;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class TaskManager {
     private Task[] tasks = new Task[100];
     private int taskCount = 0;
+
+    // private static void retrieveFileContents(String filePath) throws
+    // FileNotFoundException {
+    // File f = new File("data/duke.txt");
+    // Scanner s = new Scanner(f);
+    // while (s.hasNext()) {
+    // tasks[taskCount] = new Task(s.nextLine());
+    // taskCount++;
+    // }
+    // }
 
     /**
      * Adds a task to collection
