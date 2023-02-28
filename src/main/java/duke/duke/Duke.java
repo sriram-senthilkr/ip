@@ -3,14 +3,14 @@ package duke;
 import java.util.Scanner;
 
 import duke.managers.CommandManager;
-import duke.managers.TaskManager;
+import duke.managers.TaskManager_2;
 import duke.ui.Ui;
 
 public class Duke {
 
     public static void main(String[] args) {
 
-        TaskManager t = new TaskManager();
+        TaskManager_2 t = new TaskManager_2();
         Ui.printGreetings();
         Scanner userInput = new Scanner(System.in);
 

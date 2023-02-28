@@ -6,7 +6,7 @@ import duke.tasks.Task;
 import duke.tasks.Todo;
 import java.util.ArrayList;
 
-public class TaskManager {
+public class TaskManager_2 {
     // private Task[] tasks = new Task[100];
     private ArrayList<Task> tasks = new ArrayList<Task>();
     private int taskCount = 0;
@@ -15,7 +15,7 @@ public class TaskManager {
      * Adds a task to collection
      */
     public void addTask(String task) {
-        tasks[taskCount] = new Task(task);
+        tasks.add(new Task(task));
         taskCount++;
     }
 
@@ -25,7 +25,7 @@ public class TaskManager {
     public void listTasks() {
         System.out.println("\tHere are the tasks in your list:");
         for (int i = 0; i < taskCount; i++) {
-            System.out.println("\t" + (i + 1) + ". " + tasks[i].toString());
+            System.out.println("\t" + (i + 1) + ". " + tasks.get(i).toString());
         }
     }
 
@@ -35,9 +35,9 @@ public class TaskManager {
     public void markTask(String currentInput) {
         String[] modifyTask = currentInput.split(" ");
         int taskIndex = Integer.parseInt(modifyTask[1]) - 1;
-        tasks[taskIndex].setDone();
+        tasks.get(taskIndex).setDone();
         System.out.println("\tNice! I've marked this task as done:");
-        System.out.println("    " + "[X] " + tasks[taskIndex].getTaskName());
+        System.out.println("    " + "[X] " + tasks.get(taskIndex).getTaskName());
     }
 
     /**
@@ -46,9 +46,9 @@ public class TaskManager {
     public void unmarkTask(String currentInput) {
         String[] modifyTask = currentInput.split(" ");
         int taskIndex = Integer.parseInt(modifyTask[1]) - 1;
-        tasks[taskIndex].setUndone();
+        tasks.get(taskIndex).setUndone();
         System.out.println("\tOK, I've marked this task as not done yet:");
-        System.out.println("    " + "[ ] " + tasks[taskIndex].getTaskName());
+        System.out.println("    " + "[ ] " + tasks.get(taskIndex).getTaskName());
     }
 
     /**
@@ -59,7 +59,7 @@ public class TaskManager {
         String by = operation[1];
         String taskName = operation[0].replace("deadline ", "");
         Task deadline = new Deadline(taskName, by);
-        tasks[taskCount] = deadline;
+        tasks.add(deadline);
         taskCount++;
         System.out.println("\tGot it. I've added this task:\n" + "\t  " + deadline.toString());
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
@@ -72,7 +72,7 @@ public class TaskManager {
         String[] operation = currentInput.split("todo ");
         String taskName = operation[1];
         Task todo = new Todo(taskName);
-        tasks[taskCount] = todo;
+        tasks.add(todo);
         taskCount++;
         System.out.println("\tGot it. I've added this task:\n" + "\t" + todo.toString());
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
@@ -88,7 +88,7 @@ public class TaskManager {
         String to = operation2[1];
         String taskName = operation[0].replace("event ", "");
         Task event = new Event(taskName, from, to);
-        tasks[taskCount] = event;
+        tasks.add(event);
         taskCount++;
         System.out.println("\tGot it. I've added this task:\n" + "\t  " + event.toString());
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
