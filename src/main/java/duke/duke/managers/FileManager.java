@@ -39,4 +39,16 @@ public class FileManager {
 
         }
     }
+
+    public static void writeToFile(TaskManager t) {
+        try {
+            FileWriter fw = new FileWriter("dukeData.txt");
+            for (int i = 0; i < t.taskCount; i++) {
+                fw.write(t.tasks.get(i).formatted() + "\n");
+            }
+            fw.close();
+        } catch (IOException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
 }

@@ -6,50 +6,12 @@ import duke.tasks.Task;
 import duke.tasks.Todo;
 import java.util.ArrayList;
 
-import java.io.File;
 import java.io.FileWriter;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class TaskManager {
-    private ArrayList<Task> tasks = new ArrayList<Task>();
-    private int taskCount = 0;
-
-    private static String FILEPATH = "src/main/java/duke/duke/data/duke.txt";
-
-    // public void retrieveFileContents() {
-    // try {
-    // File f = new File("dukeData.txt");
-    // Scanner s = new Scanner(f);
-    // while (s.hasNext()) {
-    // String nextLine = s.nextLine();
-    // String[] inputSplit = nextLine.split(" / ");
-    // String taskType = inputSplit[0];
-    // switch (taskType) {
-    // case "T":
-    // addExistingTask(inputSplit[1], inputSplit[2]);
-    // break;
-    // case "D":
-    // addExistingDeadline(inputSplit[1], inputSplit[2], inputSplit[3]);
-    // break;
-    // case "E":
-    // addExistingEvent(inputSplit[1], inputSplit[2], inputSplit[3], inputSplit[4]);
-    // break;
-    // }
-    // }
-    // } catch (FileNotFoundException e) {
-    // try {
-    // File newFile = new File("dukeData.txt");
-    // newFile.createNewFile();
-    // System.out.println("File created: " + newFile.getName());
-    // } catch (IOException f) {
-    // System.out.println("File couldn't be created");
-    // f.printStackTrace();
-    // }
-
-    // }
-    // }
+    public ArrayList<Task> tasks = new ArrayList<Task>();
+    public int taskCount = 0;
 
     /*
      * Add existing task to collection
@@ -90,17 +52,17 @@ public class TaskManager {
     /*
      * write task to .txt file
      */
-    public void writeToFile() {
-        try {
-            FileWriter fw = new FileWriter("dukeData.txt");
-            for (int i = 0; i < taskCount; i++) {
-                fw.write(tasks.get(i).formatted() + "\n");
-            }
-            fw.close();
-        } catch (IOException e) {
-            System.out.println("Something went wrong: " + e.getMessage());
-        }
-    }
+    // public void writeToFile() {
+    // try {
+    // FileWriter fw = new FileWriter("dukeData.txt");
+    // for (int i = 0; i < taskCount; i++) {
+    // fw.write(tasks.get(i).formatted() + "\n");
+    // }
+    // fw.close();
+    // } catch (IOException e) {
+    // System.out.println("Something went wrong: " + e.getMessage());
+    // }
+    // }
 
     /**
      * Adds a task to collection

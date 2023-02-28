@@ -3,6 +3,7 @@ package duke.managers;
 import duke.exceptions.InvalidCommandException;
 import java.lang.ArrayIndexOutOfBoundsException;
 import duke.ui.Ui;
+//import duke.managers.FileManager;
 
 public class CommandManager {
 
@@ -36,7 +37,7 @@ public class CommandManager {
                 Ui.printHelp();
                 break;
             case "bye":
-                t.writeToFile();
+                FileManager.writeToFile(t);
                 Ui.printFarewell();
                 System.exit(0);
             default:
