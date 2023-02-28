@@ -36,6 +36,7 @@ public class CommandManager {
                 Ui.printHelp();
                 break;
             case "bye":
+                t.writeToFile();
                 Ui.printFarewell();
                 System.exit(0);
             default:

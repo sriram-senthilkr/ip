@@ -30,4 +30,8 @@ public class Task {
         return "[" + this.getStatusIcon() + "] " + this.getTaskName();
     }
 
+    public String formatted() {
+        return " / " + this.getStatusIcon() + " / " + this.getTaskName();
+    }
+
 }

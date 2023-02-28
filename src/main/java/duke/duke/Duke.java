@@ -11,6 +11,7 @@ public class Duke {
     public static void main(String[] args) {
 
         TaskManager t = new TaskManager();
+        t.retrieveFileContents();
         Ui.printGreetings();
         Scanner userInput = new Scanner(System.in);
 
