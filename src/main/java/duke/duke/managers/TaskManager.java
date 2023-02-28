@@ -57,9 +57,9 @@ public class TaskManager {
      */
     public void addExistingTask(String status, String taskName) {
         Task todo = new Todo(taskName);
-        tasks[taskCount] = todo;
+        tasks.add(todo);
         if (status.equals("X")) {
-            tasks[taskCount].setDone();
+            tasks.get(taskCount).setDone();
         }
         taskCount++;
     }
@@ -69,9 +69,9 @@ public class TaskManager {
      */
     public void addExistingDeadline(String status, String taskName, String givenDeadline) {
         Task deadline = new Deadline(taskName, givenDeadline);
-        tasks[taskCount] = deadline;
+        tasks.add(deadline);
         if (status.equals("X")) {
-            tasks[taskCount].setDone();
+            tasks.get(taskCount).setDone();
         }
         taskCount++;
     }
@@ -81,9 +81,9 @@ public class TaskManager {
      */
     public void addExistingEvent(String status, String taskName, String startDate, String endDate) {
         Task event = new Event(taskName, startDate, endDate);
-        tasks[taskCount] = event;
+        tasks.add(event);
         if (status.equals("X")) {
-            tasks[taskCount].setDone();
+            tasks.get(taskCount).setDone();
         }
         taskCount++;
     }
@@ -95,7 +95,7 @@ public class TaskManager {
         try {
             FileWriter fw = new FileWriter(FILEPATH);
             for (int i = 0; i < taskCount; i++) {
-                fw.write(tasks[i].formatted() + "\n");
+                fw.write(tasks.get(i).formatted() + "\n");
             }
             fw.close();
         } catch (IOException e) {
@@ -147,7 +147,7 @@ public class TaskManager {
      * Adds deadline to task, and adds it to collection
      */
     public void addDeadline(String currentInput) {
-        String[] operation = currentInput.split("/by");
+        String[] operation = currentInput.split("/by ");
         String by = operation[1];
         String taskName = operation[0].replace("deadline ", "");
         Task deadline = new Deadline(taskName, by);
