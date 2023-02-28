@@ -26,28 +26,13 @@ public class TaskManager {
                 String taskType = inputSplit[0];
                 switch (taskType) {
                 case "T":
-                    Task todo = new Todo(inputSplit[2]);
-                    tasks[taskCount] = todo;
-                    if (inputSplit[1].equals("1")) {
-                        tasks[taskCount].setDone();
-                    }
-                    taskCount++;
+                    addExistingTask(inputSplit[1], inputSplit[2]);
                     break;
                 case "D":
-                    Task deadline = new Deadline(inputSplit[2], inputSplit[3]);
-                    tasks[taskCount] = deadline;
-                    if (inputSplit[1].equals("1")) {
-                        tasks[taskCount].setDone();
-                    }
-                    taskCount++;
+                    addExistingDeadline(inputSplit[1], inputSplit[2], inputSplit[3]);
                     break;
                 case "E":
-                    Task event = new Event(inputSplit[2], inputSplit[3], inputSplit[4]);
-                    tasks[taskCount] = event;
-                    if (inputSplit[1].equals("1")) {
-                        tasks[taskCount].setDone();
-                    }
-                    taskCount++;
+                    addExistingEvent(inputSplit[1], inputSplit[2], inputSplit[3], inputSplit[4]);
                     break;
                 }
             }
@@ -62,6 +47,42 @@ public class TaskManager {
             }
 
         }
+    }
+
+    /*
+     * Add existing task to collection
+     */
+    public void addExistingTask(String status, String taskName) {
+        Task todo = new Todo(taskName);
+        tasks[taskCount] = todo;
+        if (status.equals("1")) {
+            tasks[taskCount].setDone();
+        }
+        taskCount++;
+    }
+
+    /*
+     * Add existing deadline to collection
+     */
+    public void addExistingDeadline(String status, String taskName, String givenDeadline) {
+        Task deadline = new Deadline(taskName, givenDeadline);
+        tasks[taskCount] = deadline;
+        if (status.equals("1")) {
+            tasks[taskCount].setDone();
+        }
+        taskCount++;
+    }
+
+    /*
+     * Add existing deadline to collection
+     */
+    public void addExistingEvent(String status, String taskName, String startDate, String endDate) {
+        Task event = new Event(taskName, startDate, endDate);
+        tasks[taskCount] = event;
+        if (status.equals("1")) {
+            tasks[taskCount].setDone();
+        }
+        taskCount++;
     }
 
     /**
