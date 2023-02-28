@@ -18,38 +18,38 @@ public class TaskManager {
 
     private static String FILEPATH = "src/main/java/duke/duke/data/duke.txt";
 
-    public void retrieveFileContents() {
-        try {
-            File f = new File("dukeData.txt");
-            Scanner s = new Scanner(f);
-            while (s.hasNext()) {
-                String nextLine = s.nextLine();
-                String[] inputSplit = nextLine.split(" / ");
-                String taskType = inputSplit[0];
-                switch (taskType) {
-                case "T":
-                    addExistingTask(inputSplit[1], inputSplit[2]);
-                    break;
-                case "D":
-                    addExistingDeadline(inputSplit[1], inputSplit[2], inputSplit[3]);
-                    break;
-                case "E":
-                    addExistingEvent(inputSplit[1], inputSplit[2], inputSplit[3], inputSplit[4]);
-                    break;
-                }
-            }
-        } catch (FileNotFoundException e) {
-            try {
-                File newFile = new File("dukeData.txt");
-                newFile.createNewFile();
-                System.out.println("File created: " + newFile.getName());
-            } catch (IOException f) {
-                System.out.println("File couldn't be created");
-                f.printStackTrace();
-            }
+    // public void retrieveFileContents() {
+    // try {
+    // File f = new File("dukeData.txt");
+    // Scanner s = new Scanner(f);
+    // while (s.hasNext()) {
+    // String nextLine = s.nextLine();
+    // String[] inputSplit = nextLine.split(" / ");
+    // String taskType = inputSplit[0];
+    // switch (taskType) {
+    // case "T":
+    // addExistingTask(inputSplit[1], inputSplit[2]);
+    // break;
+    // case "D":
+    // addExistingDeadline(inputSplit[1], inputSplit[2], inputSplit[3]);
+    // break;
+    // case "E":
+    // addExistingEvent(inputSplit[1], inputSplit[2], inputSplit[3], inputSplit[4]);
+    // break;
+    // }
+    // }
+    // } catch (FileNotFoundException e) {
+    // try {
+    // File newFile = new File("dukeData.txt");
+    // newFile.createNewFile();
+    // System.out.println("File created: " + newFile.getName());
+    // } catch (IOException f) {
+    // System.out.println("File couldn't be created");
+    // f.printStackTrace();
+    // }
 
-        }
-    }
+    // }
+    // }
 
     /*
      * Add existing task to collection
