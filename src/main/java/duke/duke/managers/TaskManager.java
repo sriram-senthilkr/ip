@@ -106,4 +106,22 @@ public class TaskManager {
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
     }
 
+    /*
+     * Find given task
+     */
+    public void findTask(String currentInput) {
+        int count = 0;
+        String[] modifyTask = currentInput.split(" ", 2);
+        System.out.println("\tHere are the matching tasks in your list:");
+        for (Task task : tasks) {
+            if (task.getTaskName().equals(modifyTask[1]) || task.getTaskName().equals(modifyTask[1] + " ")) {
+                count++;
+                System.out.println("\t" + count + ". " + task.toString());
+            }
+        }
+        if (count == 0) {
+            System.out.println("\tSorry there were no matching tasks :(");
+        }
+    }
+
 }

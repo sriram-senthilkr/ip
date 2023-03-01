@@ -30,6 +30,9 @@ public class CommandManager {
             case "event":
                 t.addEvent(currentInput);
                 break;
+            case "find":
+                t.findTask(currentInput);
+                break;
             case "delete":
                 t.deleteTask(currentInput);
                 break;

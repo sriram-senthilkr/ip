@@ -11,7 +11,8 @@ public class Ui {
             + "\t7. deadline 'XXXX' /by 'YYYY' -> \n"
             + "\t\tadds a task with a deadline, with XXXX being the task and YYYY being the deadline. \n"
             + "\t8. event 'XXXX' /from 'YYYY' /to 'ZZZZ' -> \n"
-            + "\t\tadds an event, with XXXX as the event name, YYYY as the start date, and ZZZZ as the end date.";
+            + "\t\tadds an event, with XXXX as the event name, YYYY as the start date, and ZZZZ as the end date. \n"
+            + "\t9. find 'XXXX' -> \n" + "\t\tfind XXXX from all tasks, and lists them.";
 
     public static void printHorizontalLine() {
         System.out.println(LINE);

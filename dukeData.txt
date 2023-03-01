@@ -1,3 +1,5 @@
-T / X / u
-T /   / this 
-D /   / those  / tmr
+T /   / this
+T /   / that
+T / X / this
+E /   / this  /  tmr  /  today
+D /   / this  / tmr
