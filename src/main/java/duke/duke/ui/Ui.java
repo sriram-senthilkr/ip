@@ -1,5 +1,8 @@
 package duke.ui;
 
+/**
+ * Handles pre-set User Interface elements of the application
+ */
 public class Ui {
     private static String LINE = "\t____________________________________________________________";
     private static String HELPMESSAGE = "\tWelcome to the help desk! Here are a list of commands that you can input: \n\n"
@@ -14,12 +17,15 @@ public class Ui {
             + "\t\tadds an event, with XXXX as the event name, YYYY as the start date, and ZZZZ as the end date. \n"
             + "\t9. find 'XXXX' -> \n" + "\t\tfind XXXX from all tasks, and lists them.";
 
+    /**
+     * Prints a horizontal line
+     */
     public static void printHorizontalLine() {
         System.out.println(LINE);
     }
 
     /**
-     * Duke greetings
+     * Prints out greetings
      */
     public static void printGreetings() {
         String logo = " ____        _        \n" + "|  _ \\ _   _| | _____ \n" + "| | | | | | | |/ / _ \\\n"
@@ -30,7 +36,7 @@ public class Ui {
         System.out.println(LINE + "\n");
     }
 
-    /*
+    /**
      * Print Farewell
      */
     public static void printFarewell() {
@@ -38,6 +44,9 @@ public class Ui {
         printHorizontalLine();
     }
 
+    /**
+     * Prints out list of commands that can be executed
+     */
     public static void printHelp() {
         System.out.println(HELPMESSAGE);
     }

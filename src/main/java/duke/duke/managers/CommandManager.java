@@ -3,10 +3,22 @@ package duke.managers;
 import duke.exceptions.InvalidCommandException;
 import java.lang.ArrayIndexOutOfBoundsException;
 import duke.ui.Ui;
-//import duke.managers.FileManager;
 
+/**
+ * Handles the commands input by the user
+ */
 public class CommandManager {
 
+    /**
+     * Takes in the command input by the user, and executes the corresponing
+     * operation
+     * 
+     * @param t            the TaskManager object that hold the task list
+     * @param currentInput entire line of input by user
+     * @throws InvalidCommandException        if the command is invalid
+     * @throws ArrayIndexOutOfBoundsException if the command is correct, but the
+     *                                        format of command is incorrect
+     */
     public static void handleCommand(TaskManager t, String currentInput) {
         String command = currentInput.split(" ")[0];
         Ui.printHorizontalLine();

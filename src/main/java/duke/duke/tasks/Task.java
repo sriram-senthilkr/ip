@@ -1,5 +1,8 @@
 package duke.tasks;
 
+/**
+ * The base task class
+ */
 public class Task {
     protected String taskName;
     protected boolean isDone;

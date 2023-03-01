@@ -1,5 +1,8 @@
 package duke.tasks;
 
+/**
+ * Handles Deadline-type of tasks added
+ */
 public class Deadline extends Task {
     protected String by;
 

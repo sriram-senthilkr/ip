@@ -1,5 +1,8 @@
 package duke.tasks;
 
+/**
+ * Handles Todo-type of tasks
+ */
 public class Todo extends Task {
 
     /**

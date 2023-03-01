@@ -6,12 +6,19 @@ import duke.tasks.Task;
 import duke.tasks.Todo;
 import java.util.ArrayList;
 
+/**
+ * Handles all operations related to modifying the task in tasks tasks is an
+ * ArrayList containing all the input task
+ */
+
 public class TaskManager {
     public ArrayList<Task> tasks = new ArrayList<Task>();
     public int taskCount = 0;
 
     /**
-     * Adds a task to collection
+     * Adds a task to collection, and increases the count of tasks
+     * 
+     * @param task name of task to be added to the list
      */
     public void addTask(String task) {
         tasks.add(new Task(task));
@@ -20,6 +27,7 @@ public class TaskManager {
 
     /**
      * Lists all the tasks in Task
+     * 
      */
     public void listTasks() {
         System.out.println("\tHere are the tasks in your list:");
@@ -30,6 +38,8 @@ public class TaskManager {
 
     /**
      * Marks the task from the number of the task given
+     * 
+     * @param currentInput the entire string of input from the user
      */
     public void markTask(String currentInput) {
         String[] modifyTask = currentInput.split(" ");
@@ -41,6 +51,8 @@ public class TaskManager {
 
     /**
      * Unmarks the task from the number of the task given
+     * 
+     * @param currentInput the entire string of input from the user
      */
     public void unmarkTask(String currentInput) {
         String[] modifyTask = currentInput.split(" ");
@@ -51,7 +63,9 @@ public class TaskManager {
     }
 
     /**
-     * Adds deadline to task, and adds it to collection
+     * Adds deadline-task to task list
+     * 
+     * @param currentInput the entire string of input from the user
      */
     public void addDeadline(String currentInput) {
         String[] operation = currentInput.split("/by ");
@@ -65,7 +79,9 @@ public class TaskManager {
     }
 
     /**
-     * Adds todo to task, and adds it to collection
+     * Adds todo-task to task list
+     * 
+     * @param currentInput the entire string of input from the user
      */
     public void addTodo(String currentInput) {
         String[] operation = currentInput.split("todo ");
@@ -78,7 +94,9 @@ public class TaskManager {
     }
 
     /**
-     * Adds event to task, and adds it to collection
+     * Adds event-task to task list
+     * 
+     * @param currentInput the entire string of input from the user
      */
     public void addEvent(String currentInput) {
         String[] operation = currentInput.split("/from");
@@ -94,7 +112,9 @@ public class TaskManager {
     }
 
     /**
-     * Deletes event from task, and removes it from collection
+     * Deletes task from task list
+     * 
+     * @param currentInput the entire string of input from the user
      */
     public void deleteTask(String currentInput) {
         String[] modifyTask = currentInput.split(" ");
@@ -106,8 +126,10 @@ public class TaskManager {
         System.out.println("\tNow you have " + taskCount + " tasks in the list.");
     }
 
-    /*
-     * Find given task
+    /**
+     * Finds given task
+     * 
+     * @param currentInput the entire string of input from the user
      */
     public void findTask(String currentInput) {
         int count = 0;
