@@ -7,15 +7,15 @@ public class Ui {
     private static String LINE = "\t____________________________________________________________";
     private static String HELPMESSAGE = "\tWelcome to the help desk! Here are a list of commands that you can input: \n\n"
             + "\tGENERAL COMMANDS: \n" + "\t1. list -> \n" + "\t\tlists the tasks in your list. \n"
-            + "\t2. mark X -> \n" + "\t\tmarks the task at position X as 'done'. \n" + "\t3. unmark X -> \n"
-            + "\t\tunmarks the task at position X as 'undone'. \n" + "\t4. delete X -> \n"
-            + "\t\tdeletes the task at position X. \n" + "\t5. bye -> \n" + "\t\texits the application. \n\n"
-            + "\tADDING TASKS: \n" + "\t6. todo 'XXXX' -> \n" + "\t\tadds a new todo task XXXX to the list. \n"
-            + "\t7. deadline 'XXXX' /by 'YYYY' -> \n"
+            + "\t2. find 'XXXX' -> \n" + "\t\tfind XXXX from all tasks, and lists them. \n" + "\t3. mark X -> \n"
+            + "\t\tmarks the task at position X as 'done'. \n" + "\t4. unmark X -> \n"
+            + "\t\tunmarks the task at position X as 'undone'. \n" + "\t5. delete X -> \n"
+            + "\t\tdeletes the task at position X. \n" + "\t6. bye -> \n" + "\t\texits the application. \n\n"
+            + "\tADDING TASKS: \n" + "\t1. todo 'XXXX' -> \n" + "\t\tadds a new todo task XXXX to the list. \n"
+            + "\t2. deadline 'XXXX' /by 'YYYY' -> \n"
             + "\t\tadds a task with a deadline, with XXXX being the task and YYYY being the deadline. \n"
-            + "\t8. event 'XXXX' /from 'YYYY' /to 'ZZZZ' -> \n"
-            + "\t\tadds an event, with XXXX as the event name, YYYY as the start date, and ZZZZ as the end date. \n"
-            + "\t9. find 'XXXX' -> \n" + "\t\tfind XXXX from all tasks, and lists them.";
+            + "\t3. event 'XXXX' /from 'YYYY' /to 'ZZZZ' -> \n"
+            + "\t\tadds an event, with XXXX as the event name, YYYY as the start date, and ZZZZ as the end date.";
 
     /**
      * Prints a horizontal line
