@@ -146,7 +146,7 @@ Expected Outcome:<br/>
 `1. list ->`<br/>
 `lists the tasks in your list.`<br/>
 `2. find 'XXXX' ->`<br/>
-`find XXXX from all tasks, and lists them."<br/>
+`find XXXX from all tasks, and lists them.'<br/>
 `3. mark X ->`<br/>
 `marks the task at position X as 'done'.`<br/>
 `4. unmark X ->`<br/>
