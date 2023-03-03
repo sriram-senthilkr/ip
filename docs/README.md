@@ -1,11 +1,12 @@
-# Duke Project User Guide
+# 📜 Duke Project User Guide
 
-    ____        _
-
-| _ \ _ \_| | **\_**
-| | | | | | | |/ / _ \
- | |_| | |\_| | < **/
-|\_\_**/ \__,_|\_|\_\_\_\_|
+<pre>
+    ____        _        
+   |  _ \ _   _| | _____ 
+   | | | | | | | |/ / _ \
+   | |_| | |_| |   <  __/
+   |____/ \__,_|_|\_\___|
+</pre>
 
 _Duke_ is a CLI Chatbot that helps a person to keep track of various things.
 
@@ -13,16 +14,18 @@ _Duke_ is a CLI Chatbot that helps a person to keep track of various things.
 
 - [Quick Start](#quick-start)
 - [Features](#features)
-  - [ADD AN ENTRY: `todo` `deadline` `event`](#add-an-entry-todo-deadline-event)
-    - [Todo Tasks: `todo`](#todo-tasks-todo)
-    - [Deadline Tasks: `deadline`](#deadline-tasks-deadline)
-    - [Event Tasks: `event`](#event-tasks-event)
-  - [SHOW FULL LIST OF TASKS: `list`](#show-full-list-of-tasks-list)
-  - [SHOW LIST OF TASKS THAT CONTAINS KEYWORD(S): `find`](#show-list-of-tasks-that-contains-keywords-find)
-  - [MARK A TASK AS DONE: `mark`](#mark-a-task-as-done-mark)
-  - [UNMARK A TASK: `unmark`](#unmark-a-task-unmark)
-  - [DELETE AN ENTRY: `delete`](#delete-an-entry-delete)
-  - [EXIT DUKE: `bye`](#exit-duke-bye)
+  - [ADDING A TASK](#adding-a-task)
+    - [Todo Tasks: `todo`](#1-todo-tasks-todo)
+    - [Deadline Tasks: `deadline`](#2-deadline-tasks-deadline)
+    - [Event Tasks: `event`](#3-event-tasks-event)
+  - [GENERAL COMMANDS](#general-commands)
+    - [Show full lists of tasks: `list`](#1-show-full-lists-of-tasks-list)
+    - [Find all tasks containing keyword(s): `find`](#2-find-all-tasks-containing-keywords-find)
+    - [Mark task as done: `mark`](#3-mark-task-as-done-mark)
+    - [Unmark task as done: `unmark`](#4-unmark-task-as-done-unmark)
+    - [Deleting a task: `delete`](#5-deleting-a-task-delete)
+    - [Getting full list of commands: `help`](#6-getting-full-list-of-commands-help)
+    - [Exit programme: `bye`](#7-exit-programme-bye)
 - [Command Summary](#command-summary)
 
 ## Quick Start
@@ -35,7 +38,7 @@ _Duke_ is a CLI Chatbot that helps a person to keep track of various things.
 
 ## Features
 
-### ADDING A TASK: `todo` `deadline` `event`
+### ADDING A TASK:
 
 #### There are 3 ways to add an entry depending on the type of your task
 
@@ -76,7 +79,8 @@ Expected Outcome:<br/>
 
 ### 1. Show full lists of tasks: `list`
 
-    Shows a list of all tasks
+    show list of all tasks
+
     Example: list
 
 Expected Outcome:<br/>
@@ -88,8 +92,8 @@ Expected Outcome:<br/>
 
 ### 2. Find all tasks containing keyword(s): `find`
 
-      Shows a list of all tasks with the keyword(s) with their corresponding task number
       find KEYWORDS
+
       EXAMPLE: find book
 
 Expected Outcome:<br/>
@@ -100,7 +104,6 @@ Expected Outcome:<br/>
 
 ### 3. Mark task as done: `mark`
 
-      marks a task as done
       mark TASK_NUMBER
 
       EXAMPLE: mark 1
@@ -111,7 +114,6 @@ Expected Outcome:<br/>
 
 ### 4. Unmark task as done: `unmark`
 
-      unmarks a task
       unmark TASK_NUMBER
 
       EXAMPLE: unmark 4
@@ -122,7 +124,6 @@ Expected Outcome:<br/>
 
 ### 5. Deleting a task: `delete`
 
-    removes a task from the list
     delete TASK_NUMBER
 
       EXAMPLE: delete 5
@@ -133,7 +134,6 @@ Expected Outcome:<br/>
 
 ### 6. Getting full list of commands: `help`
 
-    displays list of commands available
     help
 
       EXAMPLE: help
@@ -144,27 +144,27 @@ Expected Outcome:<br/>
 `Welcome to the help desk! Here are a list of commands that you can input:`<br/>
 `GENERAL COMMANDS:`<br/>
 `1. list ->`<br/>
-'lists the tasks in your list.`<br/>
-'2. find 'XXXX' ->`<br/>
-'find XXXX from all tasks, and lists them."<br/>
-'3. mark X ->`<br/>
-'marks the task at position X as 'done'.`<br/>
-'4. unmark X ->`<br/>
-'unmarks the task at position X as 'undone'.`<br/>
-'5. delete X ->`<br/>
-'deletes the task at position X.`<br/>
-'6. bye ->`<br/>
-'exits the application.`<br/>
+`lists the tasks in your list.`<br/>
+`2. find 'XXXX' ->`<br/>
+`find XXXX from all tasks, and lists them."<br/>
+`3. mark X ->`<br/>
+`marks the task at position X as 'done'.`<br/>
+`4. unmark X ->`<br/>
+`unmarks the task at position X as 'undone'.`<br/>
+`5. delete X ->`<br/>
+`deletes the task at position X.`<br/>
+`6. bye ->`<br/>
+`exits the application.`<br/>
 
-'ADDING TASKS:`<br/>
-'1. todo 'XXXX'`<br/>
-'adds a new todo task XXXX to the list.`<br/>
-'2. deadline 'XXXX' /by 'YYYY' ->`<br/>
-'adds a task with a deadline, with XXXX being the task and YYYY being the deadline.`<br/>
-'3. event 'XXXX' /from 'YYYY' /to 'ZZZZ'`<br/>
-'adds an event, with XXXX as the event name, YYYY as the start date, and ZZZZ as the end date.`<br/>
+`ADDING TASKS:`<br/>
+`1. todo 'XXXX'`<br/>
+`adds a new todo task XXXX to the list.`<br/>
+`2. deadline 'XXXX' /by 'YYYY' ->`<br/>
+`adds a task with a deadline, with XXXX being the task and YYYY being the deadline.`<br/>
+`3. event 'XXXX' /from 'YYYY' /to 'ZZZZ'`<br/>
+`adds an event, with XXXX as the event name, YYYY as the start date, and ZZZZ as the end date.`<br/>
 
-### EXIT DUKE: `bye`
+### 7. Exit programme: `bye`
 
       exits the programme
       Example: bye
