@@ -57,6 +57,7 @@ Expected Outcome:<br/>
 ### 2. Deadline Tasks: `deadline`
 
       deadline TASK_DESCRIPTION /by DEADLINE_DESCRIPTION
+
       EXAMPLE: deadline complete this week's IP /by Wednesday
 
 Expected Outcome:<br/>
@@ -79,9 +80,9 @@ Expected Outcome:<br/>
 
 ### 1. Show full lists of tasks: `list`
 
-    show list of all tasks
+      show list of all tasks
 
-    Example: list
+      Example: list
 
 Expected Outcome:<br/>
 `Here are the tasks in your list:` <br/>
@@ -124,7 +125,7 @@ Expected Outcome:<br/>
 
 ### 5. Deleting a task: `delete`
 
-    delete TASK_NUMBER
+      delete TASK_NUMBER
 
       EXAMPLE: delete 5
 
@@ -134,7 +135,7 @@ Expected Outcome:<br/>
 
 ### 6. Getting full list of commands: `help`
 
-    help
+      help
 
       EXAMPLE: help
 
@@ -167,6 +168,7 @@ Expected Outcome:<br/>
 ### 7. Exit programme: `bye`
 
       exits the programme
+
       Example: bye
 
 Expected Outcome:<br/>
